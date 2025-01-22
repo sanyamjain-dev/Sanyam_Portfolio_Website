@@ -38,7 +38,7 @@ const EducationCard = ({ education }) => (
         className="text-secondary text-[16px] font-semibold"
         style={{ margin: 0 }}
       >
-        Grades- {education.grade}{" "}
+        Grades- {education.grade}{" "} 
       </p>
     </div>
 

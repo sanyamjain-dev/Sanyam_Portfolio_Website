@@ -59,12 +59,12 @@ const About = () => {
 
         <motion.div
           variants={fadeIn("left", "spring", 0.1, 1)}
-          className="  h-60  ml-40 flex justify-center  items-center  pb-4 rounded-xl mb-6  w-full max-xs:ml-0 max-xs:mt-10"
+          className="  h-60  ml-40 flex justify-center  items-center  pb-4 rounded-xl mb-6  w-full max-xs:ml-0 max-xs:mt-10 max-xs:h-80"
         >
           <img
             src={sam}
             alt=""
-            className="h-60 object-cover p-3 rounded-3xl mr-3 w-full"
+            className="h-60 object-cover p-3 rounded-3xl mr-3 w-full max-xs:h-80"
           />
         </motion.div>
       </div>
