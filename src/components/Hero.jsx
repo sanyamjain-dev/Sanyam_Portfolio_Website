@@ -50,7 +50,7 @@ const Hero = () => {
                 window.open("https://github.com/Sanyam1332", "_blank")
               }
             >
-              View Github profile
+              View GitHub profile
             </button>
           </div>
         </div>
