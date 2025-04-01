@@ -25,8 +25,23 @@ import lssms from "./education/lssms.png";
 import tmu from "./education/tmu.png";
 
 import instant from "./instant.png";
+import instant2 from "./instant2.png";
+import instant3 from "./instant3.png";
+import instant4 from "./instant4.png";
+import aavaas1 from "./aavaas1.png";
 import aavaas2 from "./aavaas2.png";
+import aavaas3 from "./aavaas3.png";
+import aavaas4 from "./aavaas4.png";
 import todo from "./todo.png";
+import wealthify1 from "./wealthify1.png";
+import wealthify2 from "./wealthify2.png";
+import wealthify3 from "./wealthify3.png";
+import wealthify4 from "./wealthify4.png";
+import wealthify5 from "./wealthify5.png";
+import pasteApp1 from "./pasteApp1.png";
+import pasteApp2 from "./pasteApp2.png";
+import pasteApp3 from "./pasteApp3.png";
+import blog1 from "./blog1.png";
 
 export {
   logo,
@@ -50,7 +65,21 @@ export {
   lssms,
   tmu,
   instant,
+  instant2,
+  instant3,
+  instant4,
+  aavaas1,
   aavaas2,
+  aavaas3,
+  aavaas4,
   todo,
+  wealthify1,
+  wealthify2,
+  wealthify3,
+  wealthify4,
+  wealthify5,
+  pasteApp1,
+  pasteApp2,pasteApp3,
+  blog1,
   sam,
 };

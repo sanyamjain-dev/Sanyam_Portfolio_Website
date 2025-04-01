@@ -5,15 +5,45 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useEffect, useRef, useState } from "react";
 
 const ProjectCard = ({
   index,
   name,
   description,
   tags,
-  image,
+  images,
   source_code_link,
 }) => {
+  let transitionTime = 3000;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const timerRef = useRef(null);
+
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  useEffect(() => {
+    if (!isHovered) {
+      timerRef.current = setInterval(nextImage, transitionTime);
+    }
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isHovered, transitionTime]);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    if (timerRef.current) clearInterval(timerRef.current);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -23,18 +53,18 @@ const ProjectCard = ({
           speed: 450,
         }}
         className="bg-tertiary
-   p-5 rounded-2xl sm:w-[360px] w-full"
+   p-5 rounded-2xl sm:w-[360px] "
       >
-        <div className="relative w-full h-[230px]">
+        <div className="relative w-full h-[200px] ">
           <img
-            src={image}
+            src={images[currentIndex]}
             alt={name}
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full h-full object-cover rounded-2xl transition-opacity duration-500"
           />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer opacity-90"
             >
               <img
                 src={github}
@@ -72,16 +102,15 @@ const Works = () => {
 
       <div className="w-full flex">
         <motion.p className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]">
-          Below is a showcase of my projects that highlight my journey as a Full
-          Stack Developer and my ability to create real-world, impactful
-          solutions. Each project represents a unique challenge I embraced,
-          utilizing modern technologies to deliver functional, user-centric
-          applications. These projects aren't just academic exercises; they are
-          practical implementations designed to solve real-world problems,
-          whether it's facilitating eCommerce for local vendors, streamlining
-          house renting processes, or crafting intuitive to-do lists and
-          currency converters. Each project reflects my dedication, creativity,
-          and expertise in developing robust and impactful applications.
+          Below is a collection of my work that highlights my journey as a Full
+          Stack Developer and my passion for building real-world, scalable
+          solutions. Each project represents a unique challenge I
+          tackled—leveraging modern technologies to create functional,
+          user-centric applications. These aren’t just theoretical exercises;
+          they’re practical implementations designed to solve genuine problems,
+          whether it’s democratizing financial literacy with AI, simplifying
+          house rentals, empowering eCommerce vendors, or enhancing productivity
+          through smart tools
         </motion.p>
       </div>
 
