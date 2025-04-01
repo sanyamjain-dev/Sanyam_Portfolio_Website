@@ -171,7 +171,7 @@ const projects = [
     ],
     images: [wealthify1, wealthify2, wealthify3, wealthify4, wealthify5],
     source_code_link:
-      "https://github.com/Sanyam1332/Instant-Ecommerce-React-Clone",
+      "https://github.com/sanyamjain-dev/Wealthify-AI-Powered-Finance-Platform",
   },
   {
     name: "Aavaas: House Renting Platform",
@@ -196,7 +196,7 @@ const projects = [
       },
     ],
     images: [aavaas1, aavaas2, aavaas3, aavaas4],
-    source_code_link: "https://github.com/Sanyam1332/",
+    source_code_link: "https://github.com/sanyamjain-dev",
   },
   {
     name: "Instant: E-Commerce Platform ",
@@ -218,7 +218,7 @@ const projects = [
     ],
     images: [instant, instant2, instant3, instant4],
     source_code_link:
-      "https://github.com/Sanyam1332/Instant-Ecommerce-React-Clone",
+      "https://github.com/sanyamjain-dev/Instant-Ecommerce-React-Clone",
   },
   {
     name: "PlanIt: Project Tasks Management Platform",
@@ -239,7 +239,7 @@ const projects = [
       },
     ],
     images: [todo],
-    source_code_link: "https://github.com/Sanyam1332/TODO-WEB-APP",
+    source_code_link: "https://github.com/sanyamjain-dev/TODO-WEB-APP",
   },
 
   {
@@ -261,8 +261,7 @@ const projects = [
       },
     ],
     images: [blog1],
-    source_code_link:
-      "https://github.com/Sanyam1332/Instant-Ecommerce-React-Clone",
+    source_code_link: "https://github.com/sanyamjain-dev/",
   },
   {
     name: "QuickPaste: A Smart Text Management App ",
@@ -284,8 +283,7 @@ const projects = [
       },
     ],
     images: [pasteApp1, pasteApp2, pasteApp3],
-    source_code_link:
-      "https://github.com/Sanyam1332/Instant-Ecommerce-React-Clone",
+    source_code_link: "https://github.com/sanyamjain-dev/",
   },
 ];
 

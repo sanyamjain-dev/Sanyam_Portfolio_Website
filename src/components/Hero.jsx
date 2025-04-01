@@ -37,7 +37,7 @@ const Hero = () => {
               className="p-3 bg-tertiary rounded-lg ml-4 hover:text-[#47b6e6] max-xs:mb-4"
               onClick={() =>
                 window.open(
-                  "https://www.linkedin.com/in/sanyamjn1332/",
+                  "https://www.linkedin.com/in/sanyamjain-dev/",
                   "_blank"
                 )
               }
@@ -47,7 +47,7 @@ const Hero = () => {
             <button
               className="p-3 bg-tertiary rounded-lg ml-4 hover:text-[#47b6e6] max-xs:mb-4"
               onClick={() =>
-                window.open("https://github.com/Sanyam1332", "_blank")
+                window.open("https://github.com/sanyamjain-dev", "_blank")
               }
             >
               View GitHub profile
