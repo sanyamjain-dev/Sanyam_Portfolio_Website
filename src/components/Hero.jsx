@@ -24,7 +24,7 @@ const Hero = () => {
             <button
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1AmGQ-ZFL7IGUANZ1Igwv9EsfCNoHKS7L/view?usp=sharing",
+                  "https://drive.google.com/file/d/1cWxMK4qwXICuMr4uBOxXnunLwdSHgsXv/view?usp=sharing",
                   "_blank"
                 )
               }
@@ -50,7 +50,7 @@ const Hero = () => {
                 window.open("https://github.com/Sanyam1332", "_blank")
               }
             >
-              View Github profile
+              View GitHub profile
             </button>
           </div>
         </div>
