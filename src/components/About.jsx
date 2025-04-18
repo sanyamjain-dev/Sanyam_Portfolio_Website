@@ -39,12 +39,12 @@ const About = () => {
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview</h2>
       </motion.div>
-      <div className="flex max-xs:flex-wrap">
+      <div className="flex max-xs:flex-wrap max-lg:flex-wrap ">
         <motion.p
           variants={fadeIn("left", "spring", 0.1, 1)}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          Welcome to my portfolio: I am a full-stack developer dedicated to
+          I am a full-stack developer dedicated to
           crafting intuitive and seamless digital experiences that prioritize
           user needs. Implementing front-end and back-end technologies, I design
           user-friendly interfaces that are powered by strong server
@@ -59,12 +59,12 @@ const About = () => {
 
         <motion.div
           variants={fadeIn("left", "spring", 0.1, 1)}
-          className="  h-60  ml-40 flex justify-center  items-center  pb-4 rounded-xl mb-6  w-full max-xs:ml-0 max-xs:mt-10 max-xs:h-80"
+          className="  h-60  ml-40 flex justify-center  items-center  pb-4 rounded-xl mb-6  w-full max-xs:ml-0 max-xs:mt-10 max-xs:h-80 max-lg:h-80 max-lg:ml-0 max-lg:mt-10 max-lg:w-64"
         >
           <img
             src={sam}
             alt=""
-            className="h-60 object-cover p-3 rounded-3xl mr-3 w-full max-xs:h-80"
+            className="h-60 object-cover p-3 rounded-3xl mr-3 w-full max-xs:h-80 max-lg:h-80  "
           />
         </motion.div>
       </div>
