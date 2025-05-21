@@ -39,7 +39,7 @@ const About = () => {
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview</h2>
       </motion.div>
-      <div className="flex max-xs:flex-wrap max-lg:flex-wrap ">
+      <div className="flex  max-xs:flex-wrap max-lg:flex-wrap max-xl:flex-wrap">
         <motion.p
           variants={fadeIn("left", "spring", 0.1, 1)}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
@@ -59,7 +59,7 @@ const About = () => {
 
         <motion.div
           variants={fadeIn("left", "spring", 0.1, 1)}
-          className="  h-60  ml-40 flex justify-center  items-center  pb-4 rounded-xl mb-6  w-full max-xs:ml-0 max-xs:mt-10 max-xs:h-80 max-lg:h-80 max-lg:ml-0 max-lg:mt-10 max-lg:w-64"
+          className="  h-60  ml-40 flex justify-center  items-center  pb-4 rounded-xl mb-6  w-full max-xs:ml-0 max-xs:mt-10 max-xs:h-80 max-lg:h-80 max-lg:ml-0 max-lg:mt-10 max-lg:w-64  max-xl:h-90 max-xl:ml-16 max-xl:w-64"
         >
           <img
             src={sam}
