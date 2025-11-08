@@ -15,14 +15,14 @@ const ProjectCard = ({
   images,
   source_code_link,
 }) => {
-  let transitionTime = 3000;
+  const transitionTime = 3000;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef(null);
 
   const nextImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    setCurrentIndex((prev) =>
+      prev === images.length - 1 ? 0 : prev + 1
     );
   };
 
@@ -30,32 +30,28 @@ const ProjectCard = ({
     if (!isHovered) {
       timerRef.current = setInterval(nextImage, transitionTime);
     }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
+    return () => clearInterval(timerRef.current);
   }, [isHovered, transitionTime]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    if (timerRef.current) clearInterval(timerRef.current);
+    clearInterval(timerRef.current);
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  const handleMouseLeave = () => setIsHovered(false);
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      className="flex justify-center w-full sm:w-auto"
+    >
       <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-tertiary
-   p-5 rounded-2xl sm:w-[360px] "
+        options={{ max: 45, scale: 1, speed: 450 }}
+        className="bg-tertiary p-5 rounded-2xl w-full sm:w-[340px] md:w-[360px] flex flex-col"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <div className="relative w-full h-[200px] ">
+        <div className="relative w-full h-[200px]">
           <img
             src={images[currentIndex]}
             alt={name}
@@ -68,21 +64,21 @@ const ProjectCard = ({
             >
               <img
                 src={github}
-                alt={github}
-                className="h-1/2 w-1/2 object-contain"
+                alt="github"
+                className="w-1/2 h-1/2 object-contain"
               />
             </div>
           </div>
         </div>
 
         <div className="mt-5">
-          <h3 className="text-white text-[24px] font-bold"> {name}</h3>
-          <p className="text-secondary mt-2 text-[14px]">{description}</p>{" "}
+          <h3 className="text-white text-[20px] sm:text-[22px] font-bold">{name}</h3>
+          <p className="text-secondary mt-2 text-[14px]">{description}</p>
         </div>
 
-        <div className="mt-4 flex flex-wrap gap-2 ">
+        <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p key={tag.name} className={`text-[14px] ${tag.color}`}>
+            <p key={tag.name} className={`text-[13px] sm:text-[14px] ${tag.color}`}>
               #{tag.name}
             </p>
           ))}
@@ -100,21 +96,18 @@ const Works = () => {
         <h2 className={styles.sectionHeadText}>Projects</h2>
       </motion.div>
 
-      <div className="w-full flex">
-        <motion.p className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]">
-          Below is a collection of my work that highlights my journey as a Full
-          Stack Developer and my passion for building real-world, scalable
-          solutions. Each project represents a unique challenge I
-          tackled—leveraging modern technologies to create functional,
-          user-centric applications. These aren’t just theoretical exercises;
-          they’re practical implementations designed to solve genuine problems,
-          whether it’s democratizing financial literacy with AI, simplifying
-          house rentals, empowering eCommerce vendors, or enhancing productivity
-          through smart tools
-        </motion.p>
-      </div>
+      <motion.p
+        variants={fadeIn("", "", 0.1, 1)}
+        className="mt-3 text-secondary text-[16px] max-w-3xl leading-[28px]"
+      >
+        Below is a collection of my work that highlights my journey as a Full
+        Stack Developer and my passion for building real-world, scalable
+        solutions. Each project represents a unique challenge I tackled—
+        leveraging modern technologies to create functional, user-centric
+        applications.
+      </motion.p>
 
-      <div className="mt-20 flex flex-wrap gap-7 ">
+      <div className="mt-16 flex flex-wrap justify-center gap-7">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
