@@ -11,35 +11,28 @@ import CanvasLoader from "../Loader";
 import { useInView } from "react-intersection-observer";
 
 const Ball = ({ imgUrl }) => {
-  // Early exit if invalid or undefined
-  if (!imgUrl || typeof imgUrl !== "string") return null;
+  // Accept imported images (module objects), just check presence
+  if (!imgUrl) return null;
 
-  let decal;
-  try {
-    [decal] = useTexture([imgUrl]);
-  } catch (error) {
-    console.warn("Texture load failed:", imgUrl);
-    return null;
-  }
-
-  if (!decal) return null;
+  const decal = useTexture(imgUrl);
 
   return (
     <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
+
       <mesh castShadow receiveShadow scale={2.6}>
-        {/* Prevent NaN geometry */}
-        <icosahedronGeometry args={[1, 1]} attach="geometry" />
+        <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color="#fff8eb"
           polygonOffset
           polygonOffsetFactor={-5}
           flatShading
         />
+
         <Decal
           position={[0, 0, 1]}
-          rotation={[0, 0, 0]} // stable rotation
+          rotation={[0, 0, 0]}
           scale={1}
           map={decal}
           flatShading
@@ -50,7 +43,8 @@ const Ball = ({ imgUrl }) => {
 };
 
 const BallCanvas = ({ icon }) => {
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const isMobile =
+    typeof window !== "undefined" && window.innerWidth < 768;
 
   return (
     <Canvas
@@ -70,6 +64,7 @@ const BallCanvas = ({ icon }) => {
 
 export const LazyBallCanvas = ({ icon }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
+
   return (
     <div ref={ref} className="w-28 h-28">
       {inView && <BallCanvas icon={icon} />}
